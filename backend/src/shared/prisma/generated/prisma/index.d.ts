@@ -3341,7 +3341,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingMinAggregateOutputType = {
-    id: string | null
     recipeId: string | null
     userId: string | null
     rating: number | null
@@ -3350,7 +3349,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingMaxAggregateOutputType = {
-    id: string | null
     recipeId: string | null
     userId: string | null
     rating: number | null
@@ -3359,7 +3357,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingCountAggregateOutputType = {
-    id: number
     recipeId: number
     userId: number
     rating: number
@@ -3378,7 +3375,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingMinAggregateInputType = {
-    id?: true
     recipeId?: true
     userId?: true
     rating?: true
@@ -3387,7 +3383,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingMaxAggregateInputType = {
-    id?: true
     recipeId?: true
     userId?: true
     rating?: true
@@ -3396,7 +3391,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingCountAggregateInputType = {
-    id?: true
     recipeId?: true
     userId?: true
     rating?: true
@@ -3492,7 +3486,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingGroupByOutputType = {
-    id: string
     recipeId: string
     userId: string
     rating: number
@@ -3520,7 +3513,6 @@ export namespace Prisma {
 
 
   export type RecipeRatingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     recipeId?: boolean
     userId?: boolean
     rating?: boolean
@@ -3531,7 +3523,6 @@ export namespace Prisma {
   }, ExtArgs["result"]["recipeRating"]>
 
   export type RecipeRatingSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     recipeId?: boolean
     userId?: boolean
     rating?: boolean
@@ -3542,7 +3533,6 @@ export namespace Prisma {
   }, ExtArgs["result"]["recipeRating"]>
 
   export type RecipeRatingSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     recipeId?: boolean
     userId?: boolean
     rating?: boolean
@@ -3553,7 +3543,6 @@ export namespace Prisma {
   }, ExtArgs["result"]["recipeRating"]>
 
   export type RecipeRatingSelectScalar = {
-    id?: boolean
     recipeId?: boolean
     userId?: boolean
     rating?: boolean
@@ -3561,7 +3550,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type RecipeRatingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "recipeId" | "userId" | "rating" | "createdAt" | "updatedAt", ExtArgs["result"]["recipeRating"]>
+  export type RecipeRatingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"recipeId" | "userId" | "rating" | "createdAt" | "updatedAt", ExtArgs["result"]["recipeRating"]>
   export type RecipeRatingInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     recipe?: boolean | RecipeDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -3582,7 +3571,6 @@ export namespace Prisma {
       user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
       recipeId: string
       userId: string
       rating: number
@@ -3671,8 +3659,8 @@ export namespace Prisma {
      * // Get first 10 RecipeRatings
      * const recipeRatings = await prisma.recipeRating.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const recipeRatingWithIdOnly = await prisma.recipeRating.findMany({ select: { id: true } })
+     * // Only select the `recipeId`
+     * const recipeRatingWithRecipeIdOnly = await prisma.recipeRating.findMany({ select: { recipeId: true } })
      * 
      */
     findMany<T extends RecipeRatingFindManyArgs>(args?: SelectSubset<T, RecipeRatingFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecipeRatingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -3716,9 +3704,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many RecipeRatings and only return the `id`
-     * const recipeRatingWithIdOnly = await prisma.recipeRating.createManyAndReturn({
-     *   select: { id: true },
+     * // Create many RecipeRatings and only return the `recipeId`
+     * const recipeRatingWithRecipeIdOnly = await prisma.recipeRating.createManyAndReturn({
+     *   select: { recipeId: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -3807,9 +3795,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more RecipeRatings and only return the `id`
-     * const recipeRatingWithIdOnly = await prisma.recipeRating.updateManyAndReturn({
-     *   select: { id: true },
+     * // Update zero or more RecipeRatings and only return the `recipeId`
+     * const recipeRatingWithRecipeIdOnly = await prisma.recipeRating.updateManyAndReturn({
+     *   select: { recipeId: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4013,7 +4001,6 @@ export namespace Prisma {
    * Fields of the RecipeRating model
    */
   interface RecipeRatingFieldRefs {
-    readonly id: FieldRef<"RecipeRating", 'String'>
     readonly recipeId: FieldRef<"RecipeRating", 'String'>
     readonly userId: FieldRef<"RecipeRating", 'String'>
     readonly rating: FieldRef<"RecipeRating", 'Float'>
@@ -4471,7 +4458,6 @@ export namespace Prisma {
 
 
   export const RecipeRatingScalarFieldEnum: {
-    id: 'id',
     recipeId: 'recipeId',
     userId: 'userId',
     rating: 'rating',
@@ -4687,7 +4673,6 @@ export namespace Prisma {
     AND?: RecipeRatingWhereInput | RecipeRatingWhereInput[]
     OR?: RecipeRatingWhereInput[]
     NOT?: RecipeRatingWhereInput | RecipeRatingWhereInput[]
-    id?: StringFilter<"RecipeRating"> | string
     recipeId?: StringFilter<"RecipeRating"> | string
     userId?: StringFilter<"RecipeRating"> | string
     rating?: FloatFilter<"RecipeRating"> | number
@@ -4698,7 +4683,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingOrderByWithRelationInput = {
-    id?: SortOrder
     recipeId?: SortOrder
     userId?: SortOrder
     rating?: SortOrder
@@ -4709,7 +4693,7 @@ export namespace Prisma {
   }
 
   export type RecipeRatingWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
+    recipeId_userId?: RecipeRatingRecipeIdUserIdCompoundUniqueInput
     AND?: RecipeRatingWhereInput | RecipeRatingWhereInput[]
     OR?: RecipeRatingWhereInput[]
     NOT?: RecipeRatingWhereInput | RecipeRatingWhereInput[]
@@ -4720,10 +4704,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"RecipeRating"> | Date | string
     recipe?: XOR<RecipeScalarRelationFilter, RecipeWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id">
+  }, "recipeId_userId">
 
   export type RecipeRatingOrderByWithAggregationInput = {
-    id?: SortOrder
     recipeId?: SortOrder
     userId?: SortOrder
     rating?: SortOrder
@@ -4740,7 +4723,6 @@ export namespace Prisma {
     AND?: RecipeRatingScalarWhereWithAggregatesInput | RecipeRatingScalarWhereWithAggregatesInput[]
     OR?: RecipeRatingScalarWhereWithAggregatesInput[]
     NOT?: RecipeRatingScalarWhereWithAggregatesInput | RecipeRatingScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"RecipeRating"> | string
     recipeId?: StringWithAggregatesFilter<"RecipeRating"> | string
     userId?: StringWithAggregatesFilter<"RecipeRating"> | string
     rating?: FloatWithAggregatesFilter<"RecipeRating"> | number
@@ -4879,7 +4861,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingCreateInput = {
-    id?: string
     rating: number
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -4888,7 +4869,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingUncheckedCreateInput = {
-    id?: string
     recipeId: string
     userId: string
     rating: number
@@ -4897,7 +4877,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4906,7 +4885,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
     recipeId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
@@ -4915,7 +4893,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingCreateManyInput = {
-    id?: string
     recipeId: string
     userId: string
     rating: number
@@ -4924,14 +4901,12 @@ export namespace Prisma {
   }
 
   export type RecipeRatingUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type RecipeRatingUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
     recipeId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
@@ -5089,8 +5064,12 @@ export namespace Prisma {
     isNot?: RecipeWhereInput
   }
 
+  export type RecipeRatingRecipeIdUserIdCompoundUniqueInput = {
+    recipeId: string
+    userId: string
+  }
+
   export type RecipeRatingCountOrderByAggregateInput = {
-    id?: SortOrder
     recipeId?: SortOrder
     userId?: SortOrder
     rating?: SortOrder
@@ -5103,7 +5082,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingMaxOrderByAggregateInput = {
-    id?: SortOrder
     recipeId?: SortOrder
     userId?: SortOrder
     rating?: SortOrder
@@ -5112,7 +5090,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingMinOrderByAggregateInput = {
-    id?: SortOrder
     recipeId?: SortOrder
     userId?: SortOrder
     rating?: SortOrder
@@ -5419,7 +5396,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingCreateWithoutUserInput = {
-    id?: string
     rating: number
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5427,7 +5403,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingUncheckedCreateWithoutUserInput = {
-    id?: string
     recipeId: string
     rating: number
     createdAt?: Date | string
@@ -5492,7 +5467,6 @@ export namespace Prisma {
     AND?: RecipeRatingScalarWhereInput | RecipeRatingScalarWhereInput[]
     OR?: RecipeRatingScalarWhereInput[]
     NOT?: RecipeRatingScalarWhereInput | RecipeRatingScalarWhereInput[]
-    id?: StringFilter<"RecipeRating"> | string
     recipeId?: StringFilter<"RecipeRating"> | string
     userId?: StringFilter<"RecipeRating"> | string
     rating?: FloatFilter<"RecipeRating"> | number
@@ -5552,7 +5526,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingCreateWithoutRecipeInput = {
-    id?: string
     rating: number
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5560,7 +5533,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingUncheckedCreateWithoutRecipeInput = {
-    id?: string
     userId: string
     rating: number
     createdAt?: Date | string
@@ -5727,7 +5699,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingCreateManyUserInput = {
-    id?: string
     recipeId: string
     rating: number
     createdAt?: Date | string
@@ -5743,7 +5714,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5751,7 +5721,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
     recipeId?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5759,7 +5728,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
     recipeId?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5793,7 +5761,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingCreateManyRecipeInput = {
-    id?: string
     userId: string
     rating: number
     createdAt?: Date | string
@@ -5801,7 +5768,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingUpdateWithoutRecipeInput = {
-    id?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5809,7 +5775,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingUncheckedUpdateWithoutRecipeInput = {
-    id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5817,7 +5782,6 @@ export namespace Prisma {
   }
 
   export type RecipeRatingUncheckedUpdateManyWithoutRecipeInput = {
-    id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string

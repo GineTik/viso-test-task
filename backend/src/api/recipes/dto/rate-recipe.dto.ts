@@ -3,7 +3,6 @@ import { IsNumber } from 'class-validator';
 
 export class RateRecipeDto {
   @ApiProperty({
-    description: 'The rating of the recipe',
     example: 4.5,
   })
   @IsNumber()

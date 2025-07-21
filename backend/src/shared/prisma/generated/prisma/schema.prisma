@@ -33,8 +33,6 @@ model Recipe {
 }
 
 model RecipeRating {
-  id String @id @default(uuid())
-
   recipeId String
   recipe   Recipe @relation(fields: [recipeId], references: [id])
 
@@ -44,4 +42,6 @@ model RecipeRating {
   rating    Float
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@unique([recipeId, userId])
 }

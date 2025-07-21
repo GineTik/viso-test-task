@@ -138,7 +138,6 @@ exports.Prisma.RecipeScalarFieldEnum = {
 };
 
 exports.Prisma.RecipeRatingScalarFieldEnum = {
-  id: 'id',
   recipeId: 'recipeId',
   userId: 'userId',
   rating: 'rating',

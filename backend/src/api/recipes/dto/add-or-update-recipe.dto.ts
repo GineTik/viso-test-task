@@ -1,9 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString } from 'class-validator';
 
-export class AddRecipeDto {
+export class AddOrUpdateRecipeDto {
   @ApiProperty({
-    description: 'The name of the recipe',
     example: 'Recipe Name',
   })
   @IsString()
@@ -11,7 +10,6 @@ export class AddRecipeDto {
   name: string;
 
   @ApiProperty({
-    description: 'The description of the recipe',
     example: 'Recipe Description',
   })
   @IsString()
