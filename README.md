@@ -1,6 +1,4 @@
-# Recipe Sharing Platform
-
-This project is a web application for creating, sharing, and discovering recipes.
+# FlavorAI
 
 ## Features
 
@@ -32,12 +30,10 @@ The backend uses a default modular architecture with two primary layers:
 
 ## React Code Styles
 
-To maintain consistency and readability across the React codebase, we adhere to the following naming conventions:
-
-- **Components**: PascalCase (e.g., `RecipeCard.tsx`)
-- **Hooks**: camelCase with a `use` prefix (e.g., `useRecipes.ts`)
-- **Other files**: camelCase (e.g., `apiClient.ts`)
+To maintain consistency and readability across the React codebase, all files (components, hooks, and others) share the same naming convention: `name-of-file.ts`.
 
 ## AI Integrations
 
 The project integrates with AI models through OpenRouter to provide enhanced features. The implementation details for the OpenRouter integration can be found in the `backend/src/shared/ai` directory. This integration can be used for features like recipe suggestions, ingredient analysis, or generating cooking tips.
+
+But I did not have time to integrate AI with the frontend and implement specific functionality
