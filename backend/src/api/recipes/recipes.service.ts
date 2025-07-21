@@ -3,6 +3,7 @@ import { PrismaService } from '@/shared/prisma';
 import { Injectable } from '@nestjs/common';
 import { AddOrUpdateRecipeDto } from './dto/add-or-update-recipe.dto';
 import { GetRecipeDto } from './dto/get-recipe.dto';
+import { FiltersDto } from './dto/filters.dto';
 
 @Injectable()
 export class RecipesService {
@@ -37,7 +38,11 @@ export class RecipesService {
     });
   }
 
-  async update(id: string, dto: AddOrUpdateRecipeDto): Promise<GetRecipeDto> {
+  async update(
+    userId: string,
+    id: string,
+    dto: AddOrUpdateRecipeDto,
+  ): Promise<GetRecipeDto> {
     const recipe = await this.prisma.recipe.update({
       where: {
         id,
@@ -51,10 +56,26 @@ export class RecipesService {
     return this.mapRecipeToGetRecipeDto(recipe);
   }
 
-  async findAll(userId: string): Promise<GetRecipeDto[]> {
+  async findAll(filters: FiltersDto): Promise<GetRecipeDto[]> {
     const recipes = await this.prisma.recipe.findMany({
       where: {
-        authorId: userId,
+        authorId: filters.userId,
+        OR: filters.search
+          ? [
+              {
+                name: {
+                  contains: filters.search,
+                  mode: 'insensitive',
+                },
+              },
+              {
+                description: {
+                  contains: filters.search,
+                  mode: 'insensitive',
+                },
+              },
+            ]
+          : undefined,
       },
       include: {
         ratings: true,

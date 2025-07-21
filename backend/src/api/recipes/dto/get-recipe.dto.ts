@@ -20,4 +20,10 @@ export class GetRecipeDto {
     example: 4.5,
   })
   rating: number;
+
+  @ApiProperty({
+    example: 4,
+    required: false,
+  })
+  myRating?: number;
 }

@@ -28,6 +28,7 @@ export class AuthService {
 
     return await this.jwtService.generateTokens({
       userId: user.id,
+      email: user.email,
     });
   }
 
@@ -42,6 +43,7 @@ export class AuthService {
 
     return await this.jwtService.generateTokens({
       userId: user.id,
+      email: user.email,
     });
   }
 

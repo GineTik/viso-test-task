@@ -15,7 +15,7 @@ import { RateRecipeDto } from './dto/rate-recipe.dto';
 import { User } from '@/shared/prisma';
 import { SignedUser } from '@/shared/auth/decorators/signed-user.decorator';
 import { Auth } from '@/shared/auth/decorators';
-import { ApiResponse } from '@nestjs/swagger';
+import { ApiQuery, ApiResponse } from '@nestjs/swagger';
 
 @Controller('recipes')
 export class RecipesController {
@@ -45,23 +45,40 @@ export class RecipesController {
     type: GetRecipeDto,
   })
   update(
+    @SignedUser() user: User,
     @Param('id') id: string,
     @Body() body: AddOrUpdateRecipeDto,
   ): Promise<GetRecipeDto> {
-    return this.recipesService.update(id, body);
+    return this.recipesService.update(user.id, id, body);
   }
 
   @Get()
   @ApiResponse({
+    status: 200,
     type: GetRecipeDto,
     isArray: true,
   })
-  findAll(@Query() userId: string): Promise<GetRecipeDto[]> {
-    return this.recipesService.findAll(userId);
+  @ApiQuery({
+    name: 'userId',
+    required: false,
+  })
+  @ApiQuery({
+    name: 'search',
+    required: false,
+  })
+  findAll(
+    @Query('userId') userId: string,
+    @Query('search') search: string,
+  ): Promise<GetRecipeDto[]> {
+    return this.recipesService.findAll({
+      userId,
+      search,
+    });
   }
 
   @Get(':id')
   @ApiResponse({
+    status: 200,
     type: GetRecipeDto,
   })
   findOne(@Param('id') id: string): Promise<GetRecipeDto> {

@@ -4,12 +4,17 @@ import { AuthService } from './auth.service';
 import { AuthDto } from './dto/auth.dto';
 import { SuccessAuthDto } from './dto/success-auth.dto';
 import { REFRESH_COOKIE_KEY } from '@/shared/auth';
+import { ApiResponse } from '@nestjs/swagger';
 
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('register')
+  @ApiResponse({
+    status: 200,
+    type: SuccessAuthDto,
+  })
   async register(
     @Body() body: AuthDto,
     @Res({ passthrough: true }) res: Response,
@@ -26,6 +31,10 @@ export class AuthController {
   }
 
   @Post('login')
+  @ApiResponse({
+    status: 200,
+    type: SuccessAuthDto,
+  })
   async login(
     @Body() body: AuthDto,
     @Res({ passthrough: true }) res: Response,
