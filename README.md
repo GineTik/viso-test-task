@@ -1,5 +1,9 @@
 # FlavorAI
 
+## Run
+
+Navigate to [backend/](./backend) and [frontend/](./frontend) folders and read README.md
+
 ## Features
 
 - **User Authentication**: Create an account and log in to access personalized features.
