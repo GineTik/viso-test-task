@@ -28,7 +28,11 @@
 ## Project setup
 
 ```bash
+# dependencies
 $ npm install
+
+# database setup
+$ npx prisma generate --schema=./src/shared/prisma/schema.prisma
 ```
 
 ## Compile and run the project
