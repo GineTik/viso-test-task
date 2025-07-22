@@ -33,6 +33,8 @@ $ npm install
 
 # database setup
 $ npx prisma migrate dev --schema=./src/shared/prisma/schema.prisma
+# or ONLY for linux
+$ npm run prisma:migrate
 ```
 
 ## Compile and run the project
